@@ -1,3 +1,6 @@
+#[macro_use]
+extern crate log;
+
 use chrono::{DateTime, Local};
 use crypto_hash::{hex_digest, Algorithm};
 use hmac::crypto_mac::Output;
