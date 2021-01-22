@@ -99,8 +99,6 @@ impl TencentSms {
 
         let canonical_request = self.get_canonical_request();
 
-        println!("{:#?}", canonical_request);
-
         let sign_string = format!(
             "{}\n{}\n{}/{}/{}\n{}",
             self.sign_method,
