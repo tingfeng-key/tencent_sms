@@ -4,7 +4,7 @@
 # 示例
 ```rust
 //发送
-let response = libs::tencent_sms::TencentSms::new(
+let response = TencentSms::new(
         "secret_id",
         "secret_key",
         "sdk_app_id",

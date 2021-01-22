@@ -3,6 +3,13 @@ name = "tencent_sms"
 version = "0.1.0"
 authors = ["tingfeng-key <1770963469@qq.com>"]
 edition = "2018"
+keywords = ["sms", "tencent", "http", "POST"]
+exclude = ["target", "Cargo.lock", ".gitignore", ".idea"]
+description = ""
+homepage = "https://github.com/tingfeng-key/tencent_sms"
+repository = "https://github.com/tingfeng-key/tencent_sms"
+readme = "README.md"
+license-file = "LICENSE"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
