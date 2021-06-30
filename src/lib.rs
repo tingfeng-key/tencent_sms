@@ -1,6 +1,7 @@
 #[macro_use]
 extern crate log;
 
+use awc::{Client, Connector};
 use chrono::{DateTime, Local};
 use crypto_hash::{hex_digest, Algorithm};
 use hmac::crypto_mac::Output;
@@ -8,7 +9,6 @@ use hmac::{Hmac, Mac, NewMac};
 use serde::{Deserialize, Serialize};
 use sha2::Sha256;
 use std::time::Duration;
-use awc::{Client, Connector};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct TencentSms {
@@ -161,7 +161,9 @@ impl TencentSms {
 
         match response {
             Ok(mut res) => {
-                let json: Result<Response, _> = res.json().await;
+                let body = res.body().await.map_err(|e| "读取响应内容失败")?;
+                debug!("响应内容: {:?}", body);
+                let json = serde_json::from_slice(&body);
                 match json {
                     Ok(response) => Ok(response),
                     Err(e) => {
